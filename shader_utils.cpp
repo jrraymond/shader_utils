@@ -108,9 +108,19 @@ GLuint compile_vertex_shader(std::string f_name) {
     return vtx ;
 
 }
-GLuint create_program(GLuint vtx_shader, GLuint frag_shader) {
+GLuint link_program(GLuint vtx_shader, GLuint frag_shader) {
     GLuint prog ;
     prog = glCreateProgram() ;
+    link_shader(prog, {vtx_shader, frag_shader}) ;
+    return prog ;
+}
+
+
+GLuint create_program(std::string v_f_name, std::string f_f_name) {
+    GLuint prog ;
+    prog = glCreateProgram() ;
+    GLuint vtx_shader = compile_vertex_shader(v_f_name) ;
+    GLuint frag_shader = compile_fragment_shader(f_f_name) ;
     link_shader(prog, {vtx_shader, frag_shader}) ;
     return prog ;
 }

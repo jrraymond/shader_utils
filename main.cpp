@@ -44,7 +44,7 @@ int main() {
     std::cout << "---------------------------------\n" ;
 
     std::cout << "Linking invalid shaders" << std::endl ;
-    GLuint iprog = create_program(ivtx, ifrag) ;
+    GLuint iprog = link_program(ivtx, ifrag) ;
     print_shader_link_info(iprog) ;
     std::cout << "\n\n=================================\n" ;
 
@@ -59,7 +59,7 @@ int main() {
 
     std::cout << "Linking" << std::endl ;
 
-    GLuint prog = create_program(vtx, frag) ;
+    GLuint prog = link_program(vtx, frag) ;
     print_shader_link_info(prog) ;
 
     std::cout << "Done" << std::endl ;

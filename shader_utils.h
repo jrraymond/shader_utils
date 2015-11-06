@@ -1,3 +1,5 @@
+#ifndef SHADERUTILS_H
+#define SHADERUTILS_H
 #include <GL/glew.h>
 #include <stdio.h>
 #include <string.h>
@@ -15,4 +17,6 @@ bool link_shader(GLuint prog, std::initializer_list<GLuint> shaders) ;
 void check_gl_errors(std::string s) ;
 GLuint compile_fragment_shader(std::string f_name) ;
 GLuint compile_vertex_shader(std::string f_name) ;
-GLuint create_program(GLuint vtx_shader, GLuint frag_shader) ;
+GLuint link_program(GLuint vtx_shader, GLuint frag_shader) ;
+GLuint create_program(std::string v_f_name, std::string f_f_name) ;
+#endif
